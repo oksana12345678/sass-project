@@ -1,13 +1,13 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Montserrat";
-  src: url("/vite-sass-app-template/assets/Montserrat-Regular.woff2") format("woff2");
+  src: url("/sass-project/assets/Montserrat-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("/vite-sass-app-template/assets/Montserrat-Bold.woff2") format("woff2");
+  src: url("/sass-project/assets/Montserrat-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
@@ -57,6 +57,7 @@ menu {
 
 /* For images to not be able to exceed their container */
 img {
+  -webkit-max-inline-size: 100%;
   max-inline-size: 100%;
   max-block-size: 100%;
 }
@@ -70,6 +71,9 @@ table {
 input,
 textarea {
   -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
@@ -80,8 +84,9 @@ textarea {
 /* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
-  -moz-appearance: revert;
-       appearance: revert;
+  -moz-appearance: auto;
+  -webkit-appearance: auto;
+  appearance: revert;
 }
 
 /* preformatted text - use only for this feature */
@@ -124,11 +129,13 @@ meter {
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
 :where([contenteditable]:not([contenteditable=false])) {
-  -moz-user-modify: read-write;
-  -webkit-user-modify: read-write;
   overflow-wrap: break-word;
+  line-break: after-white-space;
   -webkit-line-break: after-white-space;
+  user-select: auto;
   -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
@@ -248,12 +255,12 @@ body {
   height: 70%;
   -webkit-transform: translate(-50%, -50%);
      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   border-radius: 50%;
   background: var(--hero-name-background);
   -webkit-filter: blur(72px);
-          filter: blur(72px);
+  filter: blur(72px);
 }
 .main-logo-img {
   width: 100%;
@@ -272,8 +279,8 @@ body {
   left: 50%;
   -webkit-transform: translateX(-50%) skewX(-10deg);
      -moz-transform: translateX(-50%) skewX(-10deg);
-      -ms-transform: translateX(-50%) skewX(-10deg);
           transform: translateX(-50%) skewX(-10deg);
+  -ms-transform: translateX(-50%) skewX(-10deg);
   z-index: -1;
   width: 105%;
   height: 20%;
