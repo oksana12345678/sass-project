@@ -30,8 +30,10 @@
       width: 70%;
       height: 70%;
       transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       border-radius: 50%;
       background: var(--hero-name-background);
+      -webkit-filter: blur(72px);
       filter: blur(72px);
     }
   }
@@ -52,6 +54,8 @@
         bottom: 5px;
         left: 50%;
         transform: translateX(-50%) skewX(-10deg);
+        -ms-transform: translateX(-50%) skewX(-10deg);
+
         z-index: -1;
 
         width: 105%;
